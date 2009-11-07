@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?> 
+<Module>
+  <ModulePrefs title="One Year Through Bible" height="400" author="Yiguang Hu"  >
+ </ModulePrefs> 
+   <UserPref name="myname" display_name="Name" default_value="Rowan"/>
+  <UserPref name="myphoto" display_name="Photo" default_value="http://doc.examples.googlepages.com/rowan-headshot.jpg"/>  
+  <UserPref name="bible" display_name="Bible" default_value="KJV" datatype="enum">
+     <EnumValue value="KJV" display_value="King James Version"/>
+     <EnumValue value="ChiUns" display_value="简体和合本圣经 "/>
+     <EnumValue value="ChiUn" display_value="繁体和合本圣经 "/>
+     <EnumValue value="ChiNCVs" display_value="New Chinese Version(Simplified)"/>
+     <EnumValue value="ChiNCV" display_value="New Chinese Version(Traditional)"/>
+     <EnumValue value="lzzbible" display_value="吕振中译本 "/>   
+   </UserPref>
+   <Content type="html"><![CDATA[
+   <div id="content_div"></div>
+   <script type="text/javascript">
+   // Get userprefs
+   var prefs = new gadgets.Prefs();
+
+   function displayGreeting () {
+     
+     var html = "";
+  
+     
+     // Set the background color according to the mycolor userpref
+     var element = document.getElementById('content_div');  
+     element.style.height=250;
+     // Set the background color according to the mycolor userpref   
+     var version=prefs.getString("bible"); 
+
+     // Display a greeting based on the myname userpref
+     html += "<br><FONT SIZE=6> " + version + ", " +
+            "!!!<br><br></FONT>";
+
+    
+     }
+     element.innerHTML = html;
+   }
+   
+   gadgets.util.registerOnLoadHandler(displayGreeting); 
+  
+   </script> 
+   ]]>  
+  </Content>
+</Module>
