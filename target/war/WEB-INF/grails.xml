@@ -1,0 +1,20 @@
+<grails>
+  <resources>
+    <resource>BootStrap</resource>
+    <resource>Config</resource>
+    <resource>DataSource</resource>
+    <resource>resources</resource>
+    <resource>UrlMappings</resource>
+    <resource>MyRobotService</resource>
+    <resource>org.grails.appengine.AppEngineReloadController</resource>
+    <resource>WaveDefaultUrlMappings</resource>
+    <resource>WaveRobotBaseController</resource>
+    <resource>org.grails.plugins.wave.WaveService</resource>
+    <resource>TestRobotImplService</resource>
+    <resource>WaveEmbedTagLib</resource>
+  </resources>
+  <plugins>
+    <plugin>AppEngineGrailsPlugin</plugin>
+    <plugin>WaveGrailsPlugin</plugin>
+  </plugins>
+</grails>
