@@ -5,7 +5,8 @@
 <Require feature="locked-domain" /> 
  </ModulePrefs> 
    <UserPref name="myname" display_name="Name" default_value="Rowan"/>
-  <UserPref name="myphoto" display_name="Photo" default_value="http://doc.examples.googlepages.com/rowan-headshot.jpg"/>  
+  <UserPref name="myphoto" display_name="Photo" default_value="http://doc.examples.googlepages.com/rowan-headshot.jpg"/> 
+ Input Key word: <input id="key" size="5" value=""><br/> 
   <UserPref name="dic" display_name="Dictionary" default_value="YANHUILAIWORD" datatype="enum">    
 
 <EnumValue value="easton" display_value="Eastons Bible Dictionary"/>
@@ -44,7 +45,7 @@ function makeJSONRequest() {
 var prefs = new gadgets.Prefs();
 
 var dic=prefs.getString("dic"); 
-var key=prefs.getString("key");  
+var key=document.getElementById('key').value; 
       var params = {};
       params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.JSON;     
       var url = "http://rock.ccim.org/gsword/gbook/searchDictionary?dic="+dic+"&key="+key;
