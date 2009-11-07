@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?> 
+<Module>
+  <ModulePrefs title="Bible Dictionaries" height="400" author="Yiguang Hu"  >
+<Require feature="wave" />
+<Require feature="locked-domain" /> 
+ </ModulePrefs> 
+   <UserPref name="myname" display_name="Name" default_value="Rowan"/>
+  <UserPref name="myphoto" display_name="Photo" default_value="http://doc.examples.googlepages.com/rowan-headshot.jpg"/>  
+  <UserPref name="dic" display_name="Dictionary" default_value="YANHUILAIWORD" datatype="enum">    
+
+<EnumValue value="easton" display_value="Eastons Bible Dictionary"/>
+<EnumValue value="ZhHanzi" display_value="Chinese/English Dictionary"/>
+<EnumValue value="CBC" display_value="Condensed Biblical Cyclopedia"/>
+<EnumValue value="Easton" display_value="Eastons Bible Dictionary"/>
+<EnumValue value="ZhEnglish" display_value="English/Chinese Dictionary"/>
+<EnumValue value="Hitchcock" display_value="Hitchcocks Bible Names"/>
+<EnumValue value="ISBE" display_value="International Standard Bible Encyclopedia"/>
+<EnumValue value="KJVD" display_value="King James Dictionary"/>
+<EnumValue value="Packard" display_value="Packards Morphological Analysis Codes"/>
+<EnumValue value="Torrey" display_value="R. A. Torreys New Topical Textbook"/>
+<EnumValue value="Robinson" display_value="Robinsons Morphological Analysis Codes"/>
+
+<EnumValue value="SAOA" display_value="Scripture Alphabet Of Animals"/>
+<EnumValue value="Smith" display_value="Smiths Bible Dictionary"/>
+<EnumValue value="StrongsGreek" display_value="Strongs Greek Bible Dictionary"/>
+<EnumValue value="StrongsHebrew" display_value="Strongs Hebrew Bible Dictionary"/>
+<EnumValue value="TCR" display_value="Thompson Chain Topics"/>
+<EnumValue value="WebstersDict" display_value="Websters Revised Unabridged Dictionary of the English Language 1913"/>
+<EnumValue value="YANHUILAI" display_value="圣经简明字典-严惠来编"/>
+<EnumValue value="YANHUILAIWORD" display_value="圣经简明词汇词典-严惠来编"/>
+<EnumValue value="ANCIENTNAMES" display_value="圣经部分古今人名地名（山、河、海）对照 -严惠来编"/>
+
+<EnumValue value="hebrewstrongcn" display_value="希伯来文Strong字典"/>
+<EnumValue value="greeknt" display_value="希腊strong字典"/>
+<EnumValue value="ZhCharlesHZhao" display_value="赵忠辉神学词典(中文关键词)"/>
+<EnumValue value="CHZTT" display_value="赵忠辉神学词典(英文关键词)"/>
+
+   </UserPref>
+   <Content type="html"><![CDATA[
+   <div id="content_div"></div>
+   <script type="text/javascript">
+     
+function makeJSONRequest() {  
+var prefs = new gadgets.Prefs();
+
+var dic=prefs.getString("dic"); 
+var key=prefs.getString("key");  
+      var params = {};
+      params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.JSON;     
+      var url = "http://rock.ccim.org/gsword/gbook/searchDictionary?dic="+dic+"&key="+key;
+      gadgets.io.makeRequest(url, response, params);
+    };
+
+    function response(obj) { 
+      var jsondata = obj.data;
+      var html = "";
+      // Process returned JS object as an associative array
+      for (var key in jsondata) {
+        var value = jsondata[key];
+        html += key + ": ";
+        // If 'value' is an array, render its contents as a bulleted list
+        if (value instanceof Array)
+        {
+          html += "<br /><ul>";
+          for (var i = 0; i < value.length ; i++)
+          {
+            html += "<li>"+ jsondata.Hobbies[i] + "</li>";
+          }
+          html+= "</ul>";
+        }  
+        // If 'value' isn't an array, just write it out as a string
+        else {        
+          html += value + "<br />";
+        }      
+      }               
+      document.getElementById('content_div').innerHTML = html;
+     };
+     gadgets.util.registerOnLoadHandler(makeJSONRequest);
+  
+   </script> 
+   ]]>  
+  </Content>
+</Module>
