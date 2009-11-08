@@ -1,9 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?> 
 <Module>
-  <ModulePrefs title="One Year Through Bible" height="400" author="Yiguang Hu"  >
+  <ModulePrefs title="One Year Through Bible" height="400" author="Yiguang Hu" description="One year through Bible" author_email="yiguang.hu+oneyearbible@gmail.com" >
  </ModulePrefs> 
-   <UserPref name="myname" display_name="Name" default_value="Rowan"/>
-  <UserPref name="myphoto" display_name="Photo" default_value="http://doc.examples.googlepages.com/rowan-headshot.jpg"/>  
+  
   <UserPref name="bible" display_name="Bible" default_value="KJV" datatype="enum">
      <EnumValue value="KJV" display_value="King James Version"/>
      <EnumValue value="ChiUns" display_value="简体和合本圣经 "/>
