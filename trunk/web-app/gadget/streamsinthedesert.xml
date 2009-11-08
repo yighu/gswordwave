@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?> 
+<Module>
+  <ModulePrefs title="荒漠甘泉" height="100" author="Yiguang Hu"  >
+ </ModulePrefs> 
+  
+   <Content type="html"><![CDATA[
+   <div id="content_div"></div>
+   <script type="text/javascript">
+     
+function makeJSONRequest() {  
+var prefs = new gadgets.Prefs();
+
+      var params = {};
+      params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.JSON;     
+      var url = "http://rock.ccim.org/gsword/gbook/devotion?devotion=STREAMST";
+      gadgets.io.makeRequest(url, response, params);
+    };
+
+    function response(obj) { 
+      var jsondata = obj.data;
+      var html = "";
+      
+      for (var key in jsondata) {
+        var value = jsondata[key];
+        html += key + ": ";
+        // If 'value' is an array, render its contents as a bulleted list
+        if (value instanceof Array)
+        {
+          html += "<br /><ul>";
+          for (var i = 0; i < value.length ; i++)
+          {
+            html += "<li>"+ jsondata.Hobbies[i] + "</li>";
+          }
+          html+= "</ul>";
+        }  
+        
+        else {        
+          html += value + "<br />";
+        }      
+      }               
+      document.getElementById('content_div').innerHTML = html;
+     };
+     gadgets.util.registerOnLoadHandler(makeJSONRequest);
+  
+   </script> 
+   ]]>  
+  </Content>
+</Module>
