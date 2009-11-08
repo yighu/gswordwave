@@ -37,8 +37,11 @@
 
    </UserPref>
    <Content type="html"><![CDATA[
+  
    <div id="content_div"></div>
-   <script type="text/javascript">
+<a href="http://www.google.com/ig/adde?moduleurl=http://gswordwave.googlecode.com/svn/trunk/web-app/gadget/bibledictionarywave.xml"><img src="http://buttons.googlesyndication.com/fusion/add.gif" style="width:104px; height:17px;border:0px;" alt="Add to iGoogle" /></a>
+  
+ <script type="text/javascript">
      
 function makeJSONRequest() {  
 var prefs = new gadgets.Prefs();
