@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?> 
 <Module>
-  <ModulePrefs title="Bible Dictionaries" height="400" author="Yiguang Hu"  >
+  <ModulePrefs title="Bible Dictionaries" height="400" author="Yiguang Hu" description="Bible dictionaries" author_email="yiguang.hu+gwavedictionary@gmail.com" >
 <Require feature="wave" />
 <Require feature="locked-domain" /> 
  </ModulePrefs> 
-   <UserPref name="key" display_name="Input Key word" default_value="Rowan"/>
+   <UserPref name="key" display_name="Input Key word" default_value=""/>
   
   <UserPref name="dic" display_name="Dictionary" default_value="YANHUILAIWORD" datatype="enum">    
 
